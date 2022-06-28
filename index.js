@@ -96,12 +96,7 @@ async function main(userEmail) {
   }
 }
 
-function sum(a, b) {
-  return a + b;
-}
-
 module.exports = {
   main,
-  check,
-  sum
+  check
 }
