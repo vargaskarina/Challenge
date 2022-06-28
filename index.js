@@ -1,5 +1,5 @@
 //Librerías
-const axios = require("axios").default;
+const axios = require("axios");
 //Constantes y variables
 const baseUrl = "https://rooftop-career-switch.herokuapp.com";
 
@@ -25,7 +25,7 @@ async function getBlocks(token) {
   }
 }
 
-//Verifica si dos bloque son consecutivos
+//Devuelve un array con los bloques ordenados
 async function check(blocksArray, token) {
   let orderedBlock = [];
   try {
@@ -38,6 +38,7 @@ async function check(blocksArray, token) {
       for (let i = 0; i < blocksArray.length; i++) {
         const element = blocksArray[i];
         let body = { blocks: [block1, element] }; //2do parámetro para llamada POST
+        //Verifica si dos bloque son consecutivos
         const response = await axios.post(
           baseUrl + "/check?token=" + token,
           body
@@ -77,8 +78,8 @@ async function checkOrder(token, orderedArray) {
   }
 }
 
-async function main() {
-  let userToken = await getToken("karinavargas365@gmail.com");
+async function main(userEmail) {
+  let userToken = await getToken(userEmail);
   //console.log(userToken);
 
   let userArray = await getBlocks(userToken);
@@ -95,4 +96,12 @@ async function main() {
   }
 }
 
-main();
+function sum(a, b) {
+  return a + b;
+}
+
+module.exports = {
+  main,
+  check,
+  sum
+}

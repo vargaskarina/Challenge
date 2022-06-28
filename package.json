@@ -4,12 +4,15 @@
   "description": "Ordenamiento de bloques",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1",
-    "start": "node index.js"
+    "test": "jest",
+    "start": "node run.js"
   },
   "author": "Karina Vargas",
   "license": "ISC",
   "dependencies": {
     "axios": "^0.27.2"
+  },
+  "devDependencies": {
+    "jest": "^28.1.1"
   }
 }
